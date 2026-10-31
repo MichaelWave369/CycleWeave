@@ -1,0 +1,11 @@
+{
+  "name": "cycleweave",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic cyclic systems and historical inspiration laboratory",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/cycle-core.js && node --check src/historical-presets.js && node --check app.js"
+  }
+}
