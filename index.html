@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1221">
+  <meta name="description" content="Explore interacting mathematical cycles in a local-first living laboratory.">
+  <title>CycleWeave · Living Cycles Laboratory</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to laboratory</a>
+<header class="header">
+  <div class="brand"><span class="symbol" aria-hidden="true">Φ</span><div><strong>CYCLEWEAVE</strong><small>Living Cycles Laboratory · Rung 1</small></div></div>
+  <a class="source-link" href="https://github.com/MichaelWave369/CycleWeave" rel="noopener noreferrer" target="_blank">View source ↗</a>
+</header>
+<main id="main">
+  <section class="hero">
+    <p class="eyebrow">TIME · PATTERN · RELATION</p>
+    <h1>Every cycle has a story.<br><em>Find where they meet.</em></h1>
+    <p>Explore deterministic calendrical cycles inspired by documented Maya mathematics. Create experimental combinations while keeping history, hypothesis and invention distinct.</p>
+  </section>
+  <section class="lab" aria-label="Interactive cycle laboratory">
+    <div class="panel controls">
+      <p class="eyebrow">01 · PARAMETERS</p><h2>Move through time</h2>
+      <label for="day-slider">Elapsed day (idealized)</label>
+      <div class="day-row"><output id="day-output" for="day-slider">0</output><span>of 2,920</span></div>
+      <input id="day-slider" type="range" min="0" max="2920" step="1" value="0">
+      <div class="buttons"><button id="reset" type="button">Reset</button><button id="step" type="button">+260 days</button><button id="full" type="button">2,920 days</button></div>
+      <label for="custom">Experimental period in days</label>
+      <div class="custom-row"><input id="custom" type="number" value="144" min="1" max="10000" step="1"><button id="apply" type="button">Apply</button></div>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div class="facts">
+        <div><small>Xultun Text 19</small><strong>2,920 days</strong><span>20 + 260 + 1,560 + 1,080</span></div>
+        <div><small>Extended calendar relation</small><strong>37,960 days</strong><span>65 × 584 = 104 × 365 = 146 × 260</span></div>
+      </div>
+      <button class="export" id="export" type="button">Export reproducible JSON ↓</button>
+    </div>
+    <div class="panel visual">
+      <p class="eyebrow">02 · PATTERN OBSERVATORY</p><h2>Cycle phase field</h2>
+      <svg id="rings" viewBox="0 0 480 480" role="img" aria-label="Current positions of six modeled cycles"></svg>
+      <div id="phases" class="phases" aria-live="polite"></div>
+      <p class="note">Phase zero indicates a modeled reset boundary, not a physical planetary alignment. Whole-day periods are idealizations.</p>
+    </div>
+  </section>
+  <section class="research"><p class="eyebrow">03 · EVIDENCE & INSPIRATION</p><h2>Origins of the ideas</h2><p>Ancient evidence and new software ideas belong in separate categories. Every historical case includes a source.</p><div id="cases" class="cases"></div></section>
+</main>
+<footer><span>Local-first · No accounts · No tracking</span><span>Respect for Indigenous knowledge and scholarly attribution.</span></footer>
+</body>
+</html>
