@@ -1,5 +1,6 @@
 import { cycleSnapshot, REFERENCE_CYCLES } from "./src/cycle-core.js";
 import { CASE_STUDIES, text19TotalDays } from "./src/historical-presets.js";
+import { initializeRung2 } from "./src/rung2-ui.js";
 
 const byId = id => document.getElementById(id);
 const SVG = "http://www.w3.org/2000/svg";
@@ -122,3 +123,14 @@ byId("custom").addEventListener("keydown", e => { if (e.key === "Enter") applyPe
 byId("export").addEventListener("click", exportJson);
 renderCases();
 render();
+
+initializeRung2({
+  getSettings: () => ({ day, customPeriod }),
+  restoreSettings: settings => {
+    day = settings.day;
+    customPeriod = settings.customPeriod;
+    byId("custom").value = String(customPeriod);
+    byId("error").hidden = true;
+    render();
+  }
+});
