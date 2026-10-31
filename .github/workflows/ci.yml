@@ -1,0 +1,20 @@
+name: CycleWeave verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax
+        run: npm run check
+      - name: Cycle arithmetic and historical-reference tests
+        run: npm test
+      - name: Static site presence
+        run: test -f index.html && test -f app.js && test -f styles.css
