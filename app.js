@@ -1,6 +1,7 @@
 import { cycleSnapshot, REFERENCE_CYCLES } from "./src/cycle-core.js";
 import { CASE_STUDIES, text19TotalDays } from "./src/historical-presets.js";
 import { initializeRung2 } from "./src/rung2-ui.js";
+import { initializePatternLab } from "./src/pattern-ui.js";
 
 const byId = id => document.getElementById(id);
 const SVG = "http://www.w3.org/2000/svg";
@@ -8,6 +9,7 @@ const colors = ["#ddae70", "#9fb7dd", "#9dd5be", "#d6a5c6", "#df9484", "#7bd7e5"
 let day = 0;
 let customPeriod = 144;
 const cycles = () => [...REFERENCE_CYCLES, { id: "experiment", periodDays: customPeriod, offsetDays: 0 }];
+let refreshPatternLab = () => {};
 
 function addSvg(tag, attributes, parent) {
   const node = document.createElementNS(SVG, tag);
@@ -57,6 +59,7 @@ function render() {
     row.append(swatch, title, value);
     container.appendChild(row);
   });
+  refreshPatternLab();
 }
 
 function applyPeriod() {
@@ -133,4 +136,8 @@ initializeRung2({
     byId("error").hidden = true;
     render();
   }
+});
+
+refreshPatternLab = initializePatternLab({
+  getPatternState: () => ({ day, cycles: cycles() })
 });
