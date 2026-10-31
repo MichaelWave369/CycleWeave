@@ -127,7 +127,7 @@ byId("export").addEventListener("click", exportJson);
 renderCases();
 render();
 
-initializeRung2({
+const rung2 = initializeRung2({
   getSettings: () => ({ day, customPeriod }),
   restoreSettings: settings => {
     day = settings.day;
@@ -144,5 +144,6 @@ refreshPatternLab = initializePatternLab({
     if (!Number.isSafeInteger(nextDay) || nextDay < 0 || nextDay > 2920) throw new RangeError("Invalid playback day");
     day = nextDay;
     render();
-  }
+  },
+  capturePattern: receipt => rung2.appendPatternMeasurement(receipt)
 });
