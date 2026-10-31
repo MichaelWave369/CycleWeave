@@ -2,7 +2,7 @@
  * Rung 3 browser view: read-only visualization of modern phase-vector mathematics.
  * No modification of the source-backed archaeological relationship ledger.
  */
-import { PATTERN_HORIZONS, tracePattern } from "./pattern-engine.js";
+import { PATTERN_HORIZONS, tracePattern, formatPatternMeasurement } from "./pattern-engine.js";
 
 const $ = id => document.getElementById(id);
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -136,9 +136,9 @@ function render() {
 }
 
 /** Returns a redraw hook used whenever Rung 1 changes day or experimental period. */
-export function initializePatternLab({ getPatternState, setPatternDay }) {
-  if (typeof getPatternState !== "function" || typeof setPatternDay !== "function") {
-    throw new TypeError("Pattern state getter and bounded day setter are required");
+export function initializePatternLab({ getPatternState, setPatternDay, capturePattern }) {
+  if (typeof getPatternState !== "function" || typeof setPatternDay !== "function" || typeof capturePattern !== "function") {
+    throw new TypeError("Pattern state getter, bounded day setter and explicit capture callback are required");
   }
   getState = getPatternState;
   let playing = false;
@@ -199,6 +199,13 @@ export function initializePatternLab({ getPatternState, setPatternDay }) {
     view = e.target.value;
     $("pattern-message").textContent = "";
     render();
+  });
+  $("pattern-capture").addEventListener("click", () => {
+    const receipt = formatPatternMeasurement(render());
+    const saved = capturePattern(receipt);
+    $("pattern-message").textContent = saved
+      ? "Measurement saved in the Test position as a modern experiment. Scroll to the nine-position workshop to review it."
+      : "The Test position is full; export its notes or make some space before capturing another measurement.";
   });
   $("pattern-export").addEventListener("click", () => {
     downloadExperiment(render());
