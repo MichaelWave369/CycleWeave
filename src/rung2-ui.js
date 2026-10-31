@@ -93,6 +93,7 @@ function renderGraph() {
     button.addEventListener("click", () => {
       activeEdgeId = edge.id;
       renderGraph();
+      $("relation-list").querySelector('[aria-pressed="true"]')?.focus();
     });
     listing.appendChild(button);
   }
@@ -134,7 +135,9 @@ function renderMatrix() {
   const current = MATRIX_SLOTS.find(s => s.id === activeSlotId);
   $("matrix-label").textContent = current.title + " · private research note";
   $("matrix-prompt").textContent = current.prompt;
-  $("matrix-editor").value = notes[activeSlotId];
+  if ($("matrix-editor").value !== notes[activeSlotId]) {
+    $("matrix-editor").value = notes[activeSlotId];
+  }
   $("matrix-count").textContent = notes[activeSlotId].length + "/" + MAX_NOTE_LENGTH + " characters";
 }
 
