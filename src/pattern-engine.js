@@ -123,3 +123,21 @@ export function tracePattern(cycles, options = {}) {
     points
   };
 }
+
+
+/** Human-readable reproducibility receipt for the Rung 2 Test worksheet slot. */
+export function formatPatternMeasurement(trace) {
+  if (!trace || trace.schema !== PATTERN_SCHEMA || !trace.settings ||
+      !trace.current || !Array.isArray(trace.cycles)) {
+    throw new TypeError("Expected a CycleWeave pattern trace");
+  }
+  const { day, coherence, contacts, totalPossiblePairs } = trace.current;
+  const { windowDays, toleranceTurns } = trace.settings;
+  return "[MODERN COMPUTATIONAL EXPERIMENT, NOT HISTORICAL EVIDENCE]\n" +
+    "Day " + day + "; window " + windowDays + " d; tolerance " +
+    toleranceTurns.toFixed(2) + " turns; coherence " +
+    coherence.toFixed(6) + "; nearby pairs " + contacts.length + "/" +
+    totalPossiblePairs + ". Periods: " + trace.cycles.map(c =>
+      c.id + "=" + c.periodDays + "d" +
+      (c.offsetDays ? "@" + c.offsetDays : "")).join(", ") + ".";
+}
