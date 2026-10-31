@@ -136,11 +136,47 @@ function render() {
 }
 
 /** Returns a redraw hook used whenever Rung 1 changes day or experimental period. */
-export function initializePatternLab({ getPatternState }) {
-  if (typeof getPatternState !== "function") {
-    throw new TypeError("A pattern state getter is required");
+export function initializePatternLab({ getPatternState, setPatternDay }) {
+  if (typeof getPatternState !== "function" || typeof setPatternDay !== "function") {
+    throw new TypeError("Pattern state getter and bounded day setter are required");
   }
   getState = getPatternState;
+  let playing = false;
+  let requestId = null;
+  let lastTick = 0;
+  const stop = () => {
+    playing = false;
+    if (requestId !== null) cancelAnimationFrame(requestId);
+    requestId = null;
+    lastTick = 0;
+    $("pattern-play").textContent = "Play evolving cycles";
+    $("pattern-play").setAttribute("aria-pressed", "false");
+  };
+  const frame = timestamp => {
+    if (!playing) return;
+    if (lastTick === 0 || timestamp - lastTick >= 160) {
+      lastTick = timestamp;
+      setPatternDay((getState().day + 20) % 2921);
+    }
+    requestId = requestAnimationFrame(frame);
+  };
+  $("pattern-play").addEventListener("click", () => {
+    if (playing) {
+      stop();
+      return;
+    }
+    playing = true;
+    $("pattern-play").textContent = "Pause evolving cycles";
+    $("pattern-play").setAttribute("aria-pressed", "true");
+    requestId = requestAnimationFrame(frame);
+  });
+  $("pattern-rewind").addEventListener("click", () => {
+    stop();
+    setPatternDay(0);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+  });
   for (const value of PATTERN_HORIZONS) {
     const option = document.createElement("option");
     option.value = String(value);
