@@ -139,5 +139,10 @@ initializeRung2({
 });
 
 refreshPatternLab = initializePatternLab({
-  getPatternState: () => ({ day, cycles: cycles() })
+  getPatternState: () => ({ day, cycles: cycles() }),
+  setPatternDay: nextDay => {
+    if (!Number.isSafeInteger(nextDay) || nextDay < 0 || nextDay > 2920) throw new RangeError("Invalid playback day");
+    day = nextDay;
+    render();
+  }
 });
