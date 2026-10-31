@@ -11,7 +11,7 @@
 <body>
 <a class="skip" href="#main">Skip to laboratory</a>
 <header class="header">
-  <div class="brand"><span class="symbol" aria-hidden="true">Φ</span><div><strong>CYCLEWEAVE</strong><small>Living Cycles Laboratory · Rung 2</small></div></div>
+  <div class="brand"><span class="symbol" aria-hidden="true">Φ</span><div><strong>CYCLEWEAVE</strong><small>Living Cycles Laboratory · Rung 3</small></div></div>
   <a class="source-link" href="https://github.com/MichaelWave369/CycleWeave" rel="noopener noreferrer" target="_blank">View source ↗</a>
 </header>
 <main id="main">
@@ -43,8 +43,47 @@
       <p class="note">Phase zero indicates a modeled reset boundary, not a physical planetary alignment. Whole-day periods are idealizations.</p>
     </div>
   </section>
-  <section class="connections" aria-label="Evidence-backed relationships">
-  <p class="eyebrow">03 · CONNECTION LENS</p>
+    <section class="pattern-laboratory" aria-label="Dynamic mathematical pattern laboratory">
+    <p class="eyebrow">03 · DYNAMIC PATTERN ENGINE</p>
+    <h2>Watch mathematical relationships take shape.</h2>
+    <p>These structures are generated from our original equal-weight phase-vector method. They are experiments, not reconstructions of Maya astronomical observations or evidence of historical connections.</p>
+    <div class="pattern-layout">
+      <div class="panel pattern-controls">
+        <h3>Experiment controls</h3>
+        <label for="pattern-window">Trace horizon</label>
+        <select id="pattern-window" class="field-select"></select>
+        <label for="pattern-view">Visualization</label>
+        <select id="pattern-view" class="field-select">
+          <option value="orbit">Harmonic phase trace</option>
+          <option value="coherence">Phase coherence over time</option>
+        </select>
+        <label for="pattern-tolerance">Modeled phase proximity threshold</label>
+        <input id="pattern-tolerance" type="range" min="0" max="25" value="8" step="1">
+        <small id="pattern-tolerance-value" class="pattern-tolerance-value">8% of one turn</small>
+        <div class="pattern-stats">
+          <div><small>Coherence at current day</small><strong id="pattern-coherence">—</strong></div>
+          <div><small>Nearby modeled phase pairs</small><strong id="pattern-pairs">—</strong></div>
+          <div><small>Current modeled day</small><strong id="pattern-day">0</strong></div>
+        </div>
+        <div class="buttons pattern-playback"><button id="pattern-play" type="button" aria-pressed="false">Play evolving cycles</button><button id="pattern-rewind" type="button">Return to day 0</button></div>
+        <button id="pattern-capture" class="export" type="button">Record result in Matrix Test slot</button>
+        <button id="pattern-export" class="export" type="button">Export mathematical pattern JSON ↓</button>
+        <p id="pattern-message" class="note" role="status"></p>
+      </div>
+      <div class="panel pattern-viewer">
+        <h3>Mathematical pattern field</h3>
+        <svg id="pattern-plot" viewBox="0 0 480 480" role="img" aria-label="Model phase pattern trace"></svg>
+        <p class="note">The gold dot marks the selected day. Adjust the original day slider and experimental cycle above to change the geometry. The threshold changes the pair list, not the phase calculations.</p>
+      </div>
+    </div>
+    <div class="panel pattern-connections">
+      <h3>Current mathematical phase pairs</h3>
+      <p class="note">Listed pairs are nearby under a user-selected numerical threshold. They are not links in the historical evidence ledger below.</p>
+      <ul id="pattern-contact-list" class="pattern-pair-list" aria-live="polite"></ul>
+    </div>
+  </section>
+<section class="connections" aria-label="Evidence-backed relationships">
+  <p class="eyebrow">04 · CONNECTION LENS</p>
   <h2>Explore the claims, not just the similarities.</h2>
   <p>Every relationship is separately classified, attributed, and limited. A modern analogy is never shown as ancient historical evidence.</p>
   <div class="graph-layout">
@@ -62,7 +101,7 @@
   </div>
 </section>
 <section class="matrix" aria-label="Nine-position research worksheet">
-  <p class="eyebrow">04 · NINE-POSITION WORKSHOP</p>
+  <p class="eyebrow">05 · NINE-POSITION WORKSHOP</p>
   <h2>Make a hypothesis. Try to break it.</h2>
   <p>The nine positions are our original analysis method inspired by a reported group of nine miniature artifacts. They are <strong>not</strong> an ancient formula.</p>
   <div class="matrix-layout">
@@ -83,7 +122,7 @@
     </div>
   </div>
 </section>
-<section class="research"><p class="eyebrow">05 · EVIDENCE & INSPIRATION</p><h2>Origins of the ideas</h2><p>Ancient evidence and new software ideas belong in separate categories. Every historical case includes a source.</p><div id="cases" class="cases"></div></section>
+<section class="research"><p class="eyebrow">06 · EVIDENCE & INSPIRATION</p><h2>Origins of the ideas</h2><p>Ancient evidence and new software ideas belong in separate categories. Every historical case includes a source.</p><div id="cases" class="cases"></div></section>
 </main>
 <footer><span>Local-first · No accounts · No tracking</span><span>Respect for Indigenous knowledge and scholarly attribution.</span></footer>
 </body>

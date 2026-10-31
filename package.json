@@ -1,11 +1,11 @@
 {
   "name": "cycleweave",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Deterministic cyclic research laboratory with typed evidence graph and nine-position workspace",
+  "description": "Source-separated cycle mathematics, evidence graph, nine-position research and dynamic pattern engine",
   "scripts": {
     "test": "node --test",
-    "check": "node --check src/cycle-core.js && node --check src/historical-presets.js && node --check src/evidence-graph.js && node --check src/pattern-matrix.js && node --check src/rung2-ui.js && node --check app.js"
+    "check": "node --check src/cycle-core.js && node --check src/historical-presets.js && node --check src/evidence-graph.js && node --check src/pattern-matrix.js && node --check src/rung2-ui.js && node --check src/pattern-engine.js && node --check src/pattern-ui.js && node --check app.js"
   }
 }
