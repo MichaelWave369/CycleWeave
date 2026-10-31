@@ -203,4 +203,21 @@ export function initializeRung2({ getSettings, restoreSettings }) {
   });
   renderGraph();
   renderMatrix();
+  return {
+    appendPatternMeasurement(message) {
+      if (typeof message !== "string" || !message.startsWith("[MODERN COMPUTATIONAL EXPERIMENT")) {
+        throw new TypeError("Only explicitly marked model measurements may be captured");
+      }
+      const next = notes.test + (notes.test ? "\n\n" : "") + message;
+      if (next.length > MAX_NOTE_LENGTH) {
+        showStatus("The Test position is full. Export your workspace or shorten its notes before capturing more measurements.", true);
+        return false;
+      }
+      notes = replaceNote(notes, "test", next);
+      activeSlotId = "test";
+      renderMatrix();
+      showStatus("Mathematical measurement recorded in Test. This does not change historical evidence.");
+      return true;
+    }
+  };
 }
