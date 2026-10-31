@@ -11,7 +11,7 @@
 <body>
 <a class="skip" href="#main">Skip to laboratory</a>
 <header class="header">
-  <div class="brand"><span class="symbol" aria-hidden="true">Φ</span><div><strong>CYCLEWEAVE</strong><small>Living Cycles Laboratory · Rung 1</small></div></div>
+  <div class="brand"><span class="symbol" aria-hidden="true">Φ</span><div><strong>CYCLEWEAVE</strong><small>Living Cycles Laboratory · Rung 2</small></div></div>
   <a class="source-link" href="https://github.com/MichaelWave369/CycleWeave" rel="noopener noreferrer" target="_blank">View source ↗</a>
 </header>
 <main id="main">
@@ -43,7 +43,47 @@
       <p class="note">Phase zero indicates a modeled reset boundary, not a physical planetary alignment. Whole-day periods are idealizations.</p>
     </div>
   </section>
-  <section class="research"><p class="eyebrow">03 · EVIDENCE & INSPIRATION</p><h2>Origins of the ideas</h2><p>Ancient evidence and new software ideas belong in separate categories. Every historical case includes a source.</p><div id="cases" class="cases"></div></section>
+  <section class="connections" aria-label="Evidence-backed relationships">
+  <p class="eyebrow">03 · CONNECTION LENS</p>
+  <h2>Explore the claims, not just the similarities.</h2>
+  <p>Every relationship is separately classified, attributed, and limited. A modern analogy is never shown as ancient historical evidence.</p>
+  <div class="graph-layout">
+    <div class="panel">
+      <label for="relation-filter">Relationship evidence class</label>
+      <select id="relation-filter" class="field-select"></select>
+      <svg id="evidence-graph" viewBox="0 0 720 500" role="img" aria-label="Evidence relationship map"></svg>
+      <p class="note">Solid paths mark documentary claims or reported interpretations. Dashed paths are modern analogies, not proof of ancient connections. The list beside the graph is keyboard accessible.</p>
+    </div>
+    <div class="panel">
+      <div class="relation-heading"><h3>Connection ledger</h3><small id="relation-count"></small></div>
+      <div id="relation-list" class="relation-list" aria-label="Select a relationship"></div>
+      <div id="relation-detail" class="relation-detail" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="matrix" aria-label="Nine-position research worksheet">
+  <p class="eyebrow">04 · NINE-POSITION WORKSHOP</p>
+  <h2>Make a hypothesis. Try to break it.</h2>
+  <p>The nine positions are our original analysis method inspired by a reported group of nine miniature artifacts. They are <strong>not</strong> an ancient formula.</p>
+  <div class="matrix-layout">
+    <div id="matrix-grid" class="matrix-grid panel" aria-label="Nine editable research positions"></div>
+    <div class="panel matrix-editor-panel">
+      <label id="matrix-label" for="matrix-editor">Observation · private research note</label>
+      <p id="matrix-prompt" class="note"></p>
+      <textarea id="matrix-editor" maxlength="1000" rows="9" spellcheck="true" placeholder="Write your own observations or experiment notes. These are not automatically published as evidence."></textarea>
+      <small id="matrix-count"></small>
+      <div class="buttons matrix-buttons">
+        <button id="matrix-export" type="button">Export workspace JSON ↓</button>
+        <button id="matrix-clear" type="button">Clear notes</button>
+      </div>
+      <label for="matrix-import" class="import-label">Import an earlier CycleWeave workspace</label>
+      <input id="matrix-import" type="file" accept=".json,application/json">
+      <p class="note">Exports contain only your nine notes and your cycle settings. Imports never modify the historical sources or evidence classifications. No server involved.</p>
+      <p id="matrix-status" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+<section class="research"><p class="eyebrow">05 · EVIDENCE & INSPIRATION</p><h2>Origins of the ideas</h2><p>Ancient evidence and new software ideas belong in separate categories. Every historical case includes a source.</p><div id="cases" class="cases"></div></section>
 </main>
 <footer><span>Local-first · No accounts · No tracking</span><span>Respect for Indigenous knowledge and scholarly attribution.</span></footer>
 </body>
