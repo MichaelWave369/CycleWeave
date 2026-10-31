@@ -1,6 +1,6 @@
 # Φ CycleWeave
 
-**Living Cycles Laboratory · Rung 2 · v0.2.0**
+**Living Cycles Laboratory · Rung 3 · v0.3.0**
 
 CycleWeave is an open-source, dependency-free mathematical engine for periodic systems, with a browser laboratory and source-traceable inspiration from Mesoamerican history. This is original software, **not** a claim that ancient peoples built the same algorithms or technology.
 
@@ -9,6 +9,12 @@ CycleWeave is an open-source, dependency-free mathematical engine for periodic s
 - Open a local HTTP server in the repository, e.g. `python -m http.server 8000`, then visit `http://localhost:8000`.
 - Use Node.js 22 or later and run `npm test` and `npm run check`. There are zero npm dependencies to install.
 - For online access, set GitHub Settings → Pages → Build and deployment to **GitHub Actions**. The publish workflow runs when code reaches `main`.
+
+## Rung 3: Dynamic Pattern Engine
+
+Rung 3 adds deterministic mathematical phase geometry, coherence traces, adjustable proximity thresholds, an explicitly controlled playback mode, local JSON export and opt-in capture of labeled numerical measurements in the existing nine-position **Test** slot. These are original computational experiments, not astronomical ephemerides or historical proof. The read-only evidence graph is unchanged.
+
+See [Rung 3 methodology and usage](docs/RUNG3.md).
 
 ## Rung 2: evidence graph and nine-position matrix
 
