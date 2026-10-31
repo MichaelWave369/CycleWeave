@@ -1,6 +1,6 @@
 # Φ CycleWeave
 
-**Living Cycles Laboratory · Rung 1 · v0.1.0**
+**Living Cycles Laboratory · Rung 2 · v0.2.0**
 
 CycleWeave is an open-source, dependency-free mathematical engine for periodic systems, with a browser laboratory and source-traceable inspiration from Mesoamerican history. This is original software, **not** a claim that ancient peoples built the same algorithms or technology.
 
@@ -9,6 +9,30 @@ CycleWeave is an open-source, dependency-free mathematical engine for periodic s
 - Open a local HTTP server in the repository, e.g. `python -m http.server 8000`, then visit `http://localhost:8000`.
 - Use Node.js 22 or later and run `npm test` and `npm run check`. There are zero npm dependencies to install.
 - For online access, set GitHub Settings → Pages → Build and deployment to **GitHub Actions**. The publish workflow runs when code reaches `main`.
+
+## Rung 2: evidence graph and nine-position matrix
+
+**A typed evidence ledger**, not an unsourced constellation of coincidences. Every graph edge includes a claim, source URL, evidence class, and explicit limitation. Filter by documented material, scholarly interpretation, reported provenance, or modern analogy. The browser graph has a keyboard-accessible relationship list and a source inspector.
+
+**Nine-position research worksheet:** Observation, Cycle, Symbol, Place, Relationship, Transformation, Hypothesis, Counterevidence, and Test. These nine slots are an **original CycleWeave method inspired by** the reported nine miniature mushroom stones, **not an ancient formula**.
+
+- Notes are held in the browser while the page is open, not sent to a server or silently published.
+- Export a deterministic, versioned JSON worksheet containing only notes, the selected day, and the experimental cycle period.
+- Import only this supported worksheet schema, with nine canonical positions, strict bounds, and a 30 KB file-size limit. Imported JSON **cannot add or change graph evidence**.
+- Clear notes explicitly; the user must confirm before clearing.
+- The original Rung 1 mathematical engine, SVG rings, and legacy snapshot JSON export are preserved unchanged.
+- GitHub Actions runs Rung 1 and Rung 2 data validation tests with Node.js 22, plus JavaScript syntax checks.
+
+### Rung 2 evidence classes
+
+| Class | Meaning |
+|---|---|
+| Documented material | Artifact, mural, or inscription is documented in an archaeological source. |
+| Scholarly interpretation | A named researcher proposes or deciphers a connection. |
+| Reported provenance | A historical report describes objects, but original find context has limits. |
+| Modern analogy | An original CycleWeave engineering idea inspired by historical work, **not** an ancient claim. |
+
+The source graph intentionally does **not** assert a direct historical connection between the nine-stone report and the Copán, Cacaxtla or Xultun astronomy; the same number appearing in different settings is insufficient.
 
 ## Rung 1 features
 
@@ -34,8 +58,7 @@ The four study cards cover Cacaxtla, Copán, Xultun and Kaminaljuyu. Their softw
 
 ## Future rungs (not yet implemented)
 
-- Typed relationship graph with links labeled as observation, scholarship, dispute, or creative analogy.
-- Nine-position experimental matrix with safeguards against invented archaeology.
+- Optional user-defined research graphs, kept distinct from the source-backed read-only ledger.
 - Optional validated astronomical ephemerides and date-correlation sensitivity analysis.
 - Verified, public-identity-based bridges to [FieldAtlas](https://github.com/MichaelWave369/FieldAtlas) and [FieldConstellation](https://github.com/MichaelWave369/FieldConstellation).
 - Additional adapters for PhiMathAtelier, DomistikaXR, PhiOS, and Gen.E.Wrist.
